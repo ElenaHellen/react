@@ -7,24 +7,23 @@ class RegisterContainer extends React.Component {
         this.state = {
             currentValue: 0,
             displayForm: false,
-            displayCounter: false,
+            count: 0,
         };
+        this.handlerAddCounter = this.handlerAddCounter.bind(this)
         this.handleIncrement = this.handleIncrement.bind(this)
         this.handleDecrement = this.handleDecrement.bind(this)
-        this.handleIncrementCounter = this.handleIncrementCounter.bind(this)
+
         this.changeDisplayFormStatus = this.changeDisplayFormStatus.bind(this)
-    }
-    
-    handleIncrement() {
-        this.setState({
-            currentValue: this.state.displayCounter + 1,
-            displayCounter: !this.state.currentValue,
-        });
+
     }
 
-    handleIncrementCounter() {
+    handlerAddCounter = () => {
+        this.setState(prevstate => ({ count: prevstate.count +1}));
+    }
+
+    handleIncrement() {
         this.setState({
-            displayCounter: this.state.displayCounter + 1,
+            currentValue: this.state.currentValue + 1,
         });
     }
 
@@ -33,28 +32,28 @@ class RegisterContainer extends React.Component {
             currentValue: this.state.currentValue - 1,
         });
     }
-    
+
     changeDisplayFormStatus() {
-            
+
         this.setState({
             displayForm: !this.state.displayForm,
         });
     }
 
-render() {
-    return (
-    <Register 
-        handleIncrement={this.handleIncrement} 
-        handleDecrement={this.handleDecrement}
-        handleIncrementCounter={this.handleIncrementCounter} 
-        displayCounter={this.state.displayCounter}
-        currentValue={this.state.currentValue}
-        displayForm={this.state.displayForm}
-        changeDisplayFormStatus={this.changeDisplayFormStatus}
-    />
-    );
-    
-}
+    render() {
+        return ( <
+            Register handlerAddCounter = { this.handlerAddCounter }
+            count = { this.state.count }
+            handleIncrement = { this.handleIncrement }
+            handleDecrement = { this.handleDecrement }
+            currentValue = { this.state.currentValue }
+
+            displayForm = { this.state.displayForm }
+            changeDisplayFormStatus = { this.changeDisplayFormStatus }
+            />
+        );
+
+    }
 
 }
 
