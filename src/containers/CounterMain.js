@@ -6,22 +6,22 @@ class Counter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-           count: [],
+           countValue: [],
            
         };
-        this.CountAdd = this.CountAdd.bind(this)
+        this.countAdd = this.countAdd.bind(this)
         
     }
     CountAdd() {
         this.setState({ 
-             count: [this.state.count, <RegisterContainer />] 
+            countValue: [this.state.countValue, <RegisterContainer />] 
          });
     
 }
         render() {
             return ( <Count
-                CountAdd={this.state.CountAdd}
-                count = { this.state.count }
+                countAdd={this.state.countAdd}
+                countValue = { this.state.countValue }
                 />
             );
     
