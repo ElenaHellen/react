@@ -1,4 +1,5 @@
 import React from 'react';
+import RegisterContainer from '../components';
 import Count from '../components';
 
 class Counter extends React.Component {
@@ -8,12 +9,15 @@ class Counter extends React.Component {
            count: [],
            
         };
-        this.handleCountAdd = this.handleCountAdd.bind(this)
+        this.CountAdd = this.CountAdd.bind(this)
         
     }
     CountAdd() {
-        this.setState(prevstate =>({count:[...prevstate.count, <Count />]}))
-    }
+        this.setState({ 
+             count: [this.state.count, <RegisterContainer />] 
+         });
+    
+}
         render() {
             return ( <Count
                 CountAdd={this.state.CountAdd}
