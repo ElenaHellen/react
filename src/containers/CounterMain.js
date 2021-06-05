@@ -12,15 +12,15 @@ class Counter extends React.Component {
         this.countAdd = this.countAdd.bind(this)
         
     }
-    CountAdd() {
+    countAdd() {
         this.setState({ 
-            countValue: [this.state.countValue, <RegisterContainer />] 
+            countValue: [this.state.countValue, <RegisterContainer />]
          });
     
 }
         render() {
             return ( <Count
-                countAdd={this.state.countAdd}
+                countAdd={this.countAdd}
                 countValue = { this.state.countValue }
                 />
             );
